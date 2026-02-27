@@ -1,0 +1,18 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Environment and secrets
+.vscode/
+.venv/
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Data files (raw or generated)
+data/
