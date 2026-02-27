@@ -1,0 +1,8 @@
+This project builds semantic search for swim workouts using OpenAI embeddings stored in SQL Server.
+
+I'll run python python_regenerate_embeddings_openai.py
+This script regenerates embeddings for all workouts and writes them into SQL Server.
+
+Here are the workouts with embeddings stored as VARBINARY.
+
+I'll run python semantic_search.py to demo results

@@ -40,18 +40,12 @@ sql-ai-endurance-agent/
     01_schema.sql
     02_load_data.sql
     03_create_http_credentials.sql
-    04_create_external_models.sql
-    05_generate_ai_content.sql
-    06_generate_embeddings.sql
-    07_vector_index.sql
-    08_summary_procedures.sql
-    09_semantic_search.sql
-    10_rag_queries.sql
+    04_b_generate_swim_ai_fields_anthropic.py
+    python_regenerate_embeddings_openai.py
 
 - Test semantic search:
-```sql
-SELECT *
-FROM dbo.SearchWorkouts('long run with fatigue');
+```
+semantic_search.py
 ```
 
 ## Datathon Narrative

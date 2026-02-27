@@ -67,26 +67,26 @@ def regenerate_embeddings():
     #conn.commit()
 
     #print("Index rebuilt. Running test query...")
-    print("Running test query...")
+    # print("Running test query...")
 
-    # --- TEST QUERY ---
-    test_query = "steady aerobic swim with good technique"
-    qvec = embed_text(test_query)
-    binary_qvec = struct.pack(f"{len(qvec)}f", *qvec)
+    # # --- TEST QUERY ---
+    # test_query = "steady aerobic swim with good technique"
+    # qvec = embed_text(test_query)
+    # binary_qvec = struct.pack(f"{len(qvec)}f", *qvec)
 
-    cursor.execute("""
-        SELECT TOP 5
-            swim_workout_id,
-            notes,
-            VECTOR_DISTANCE(embedding, ?) AS distance
-        FROM swim_workouts
-        ORDER BY distance ASC;
-    """, (binary_qvec,))
+    # cursor.execute("""
+    #     SELECT TOP 5
+    #         swim_workout_id,
+    #         notes,
+    #         VECTOR_DISTANCE(embedding, ?) AS distance
+    #     FROM swim_workouts
+    #     ORDER BY distance ASC;
+    # """, (binary_qvec,))
 
-    results = cursor.fetchall()
-    print("\nTop matches:")
-    for r in results:
-        print(f"- ID {r.swim_workout_id}: {r.notes[:80]}... (distance={r.distance})")
+    # results = cursor.fetchall()
+    # print("\nTop matches:")
+    # for r in results:
+    #     print(f"- ID {r.swim_workout_id}: {r.notes[:80]}... (distance={r.distance})")
 
     cursor.close()
     conn.close()
