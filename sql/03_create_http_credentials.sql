@@ -41,7 +41,7 @@ IF NOT EXISTS (
 BEGIN
     CREATE DATABASE SCOPED CREDENTIAL [https://models.github.ai/inference]
     WITH IDENTITY = 'HTTPEndpointHeaders',
-         SECRET = '{"Authorization":"Bearer <>GITHUB_TOKEN>"}';
+         SECRET = '{"Authorization":"Bearer <GITHUB_TOKEN>"}';
 END
 GO
 

@@ -1,8 +1,32 @@
 import os
+import pyodbc
 from datetime import datetime, date
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# ---------------------------------------------------------
+# ENV VARS
+# ---------------------------------------------------------
+SQL_SERVER = os.getenv("SQL_SERVER")
+SQL_DATABASE = os.getenv("SQL_DATABASE")
+SQL_USER = os.getenv("SQL_USER")
+SQL_PASSWORD = os.getenv("SQL_PASSWORD")
+
+
+# ---------------------------------------------------------
+# DB CONNECTION
+# ---------------------------------------------------------
+def get_connection():
+    conn_str = (
+        "DRIVER={ODBC Driver 18 for SQL Server};"
+        f"SERVER={SQL_SERVER};"
+        f"DATABASE={SQL_DATABASE};"
+        f"UID={SQL_USER};"
+        f"PWD={SQL_PASSWORD};"
+        "Encrypt=yes;TrustServerCertificate=yes;"
+    )
+    return pyodbc.connect(conn_str)
 
 # Birthdate
 birthdate_str = os.getenv("ATHLETE_BIRTHDATE")

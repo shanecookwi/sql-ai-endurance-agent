@@ -1,38 +1,15 @@
 import os
 import json
-import pyodbc
 from anthropic import Anthropic
 from dotenv import load_dotenv
-from utils import age_at_workout, athlete_gender
+from utils import get_connection, age_at_workout, athlete_gender
 
 load_dotenv()
-
-# ---------------------------------------------------------
-# ENV VARS
-# ---------------------------------------------------------
-SQL_SERVER = os.getenv("SQL_SERVER")
-SQL_DATABASE = os.getenv("SQL_DATABASE")
-SQL_USER = os.getenv("SQL_USER")
-SQL_PASSWORD = os.getenv("SQL_PASSWORD")
 
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_AI_API_KEY")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_AI_MODEL")
 
 client = Anthropic(api_key=ANTHROPIC_API_KEY)
-
-# ---------------------------------------------------------
-# DB CONNECTION
-# ---------------------------------------------------------
-def get_connection():
-    conn_str = (
-        "DRIVER={ODBC Driver 18 for SQL Server};"
-        f"SERVER={SQL_SERVER};"
-        f"DATABASE={SQL_DATABASE};"
-        f"UID={SQL_USER};"
-        f"PWD={SQL_PASSWORD};"
-        "Encrypt=yes;TrustServerCertificate=yes;"
-    )
-    return pyodbc.connect(conn_str)
 
 # ---------------------------------------------------------
 # AI CALL (Anthropic)

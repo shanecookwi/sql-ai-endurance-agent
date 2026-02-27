@@ -63,7 +63,7 @@ CREATE TABLE swim_workouts
     perceived_effort      NVARCHAR(20)      NULL,
 
     -- Embedding vector (1536 dims for text-embedding-3-small models)
-    embedding             VARBINARY(6144)   NULL -- VECTOR(1536) is not working correctly in SQL Server 2025. It creates it as embdding (vector(varbindary(6152)), null). Using VARBINARY as a workaround
+    embedding             VECTOR(1536)      NULL    -- this does not work in Sql Server 2025. it creates it as embdding (vector(varbindary(6152)), null) with my Microsoft SQL Server 2025 (RTM) - 17.0.1000.7 (X64) 
 );
 
 -- -----------------------------------------------------------------------------

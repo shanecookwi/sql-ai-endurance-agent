@@ -62,4 +62,4 @@ GO
 -- ---------------------------------------------------------------------------
 -- SECTION 2b: Test External Model for Embeddings (text-embedding-3-small)
 -- ---------------------------------------------------------------------------
-SELECT AI_GENERATE_EMBEDDINGS('Test text' USE MODEL embedding_text_embedding_3_small_1536);
+SELECT AI_GENERATE_EMBEDDINGS('Test text' USE MODEL embedding_text_embedding_3_small_1536) AS test_embedding;
